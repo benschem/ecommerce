@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 7.2.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use postgresql as the database for Active Record
@@ -24,14 +24,28 @@ gem "stimulus-rails"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Use Devise for authentication [https://github.com/heartcombo/devise]
+# After uncommenting, you need to run the generator: $ rails generate devise:install
+# Just Read The Docs, they have instructions
+gem "devise"
+
+# Custom Forms
+gem "simple_form", github: "heartcombo/simple_form"
+
+# Rubocop for code formatting and linting
+gem 'rubocop', require: false
+
+# Load environment variables from .env into ENV in development [https://github.com/bkeepers/dotenv]
+gem "dotenv-rails"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
